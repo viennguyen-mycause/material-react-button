@@ -58,7 +58,6 @@ export const Button = <T extends ButtonTypes>({
   icon,
   href,
   children,
-  initRipple,
   trailingIcon,
   // eslint disabled since we do not want to include
   // this in ...otherProps.
@@ -74,7 +73,6 @@ export const Button = <T extends ButtonTypes>({
       [CSS_CLASSES.OUTLINED]: outlined,
       [CSS_CLASSES.DENSE]: dense,
     }),
-    ref: initRipple,
     disabled,
     ...otherProps,
   };
@@ -106,9 +104,5 @@ const renderIcon = (
         className: classnames(CSS_CLASSES.ICON, icon.props.className),
       })
     : null;
-
-Button.defaultProps = {
-  initRipple: () => {},
-};
 
 export default withRipple<ButtonProps<ButtonTypes>, ButtonTypes>(Button);
